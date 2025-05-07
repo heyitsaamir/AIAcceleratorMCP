@@ -1,0 +1,20 @@
+{
+  // 💡 Inputs are prompted on first server start, then stored securely by VS Code.
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github-mcp-key",
+      "description": "Github API Key",
+      "password": true
+    }
+  ],
+  "servers": {
+    "Github": {
+      "type": "sse",
+      "url": "https://githubmcpnew.azurewebsites.net/runtime/webhooks/mcp/sse",
+      "headers": {
+        "x-functions-key": "${input:github-mcp-key}"
+      }
+    }
+  }
+}
